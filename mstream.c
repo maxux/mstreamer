@@ -249,7 +249,7 @@ int streaming(stream_t *stream) {
             if(errno != EINTR)
                 diep("VIDIOC_QBUF");
 
-            continue;
+            return 1;
         }
 
         stream->rwops = SDL_RWFromConstMem(stream->buffers[i].buffer, stream->buffers[i].length);
